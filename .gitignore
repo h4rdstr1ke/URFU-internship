@@ -1,0 +1,43 @@
+# === PHP ===
+/vendor/
+.env
+*.log
+*.cache
+
+# Конфиги с敏感 данными (пароли БД)
+/config/db_connect.php
+/config/*.local.php
+
+# === Node.js/JavaScript ===
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# === Базы данных ===
+# Исключаем SQL-дампы, но можно разрешить schema.sql
+/database/*.sql
+!/database/schema.sql  # разрешаем только этот файл
+
+# === Системные файлы ===
+.DS_Store
+.idea/
+Thumbs.db
+*.swp
+*.swo
+
+# === MAMP/Server ===
+/.htaccess
+/.user.ini
+
+# === Временные файлы ===
+*.tmp
+*.temp
+
+# === Фронтенд-сборки ===
+/dist/
+/build/
+*.min.js
+*.min.css
