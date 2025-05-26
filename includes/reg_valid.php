@@ -72,11 +72,17 @@ $insert_query = $db_connect->prepare("INSERT INTO register_user (login, pass, em
 $insert_query->bind_param("sss", $login, $hashed_password, $email);
 
 if ($insert_query->execute()) {
-    // Успешная регистрация
-    header('Location: ../pages/profile.php');
+    // Получаем ID нового пользователя
+    $user_id = $db_connect->insert_id;
+
+    // Записываем данные в сессию
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['login'] = $login;
+    $_SESSION['email'] = $email;
+    $_SESSION['authenticated'] = true;
+
+    header('Location: /pages/profile.php');
     exit();
-} else {
-    die('Ошибка при регистрации: ' . $db_connect->error);
 }
 
 // закр соединения
