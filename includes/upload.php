@@ -14,29 +14,29 @@ file_put_contents(
 );
 
 try {
-    // 1. Проверка метода
+    // Проверка метода
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         throw new Exception("Разрешены только POST-запросы", 405);
     }
 
-    // 2. Проверка CSRF
+    // Проверка CSRF
     if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         throw new Exception("Неверный CSRF-токен", 403);
     }
 
-    // 3. Проверка авторизации
+    // Проверка авторизации
     if (empty($_SESSION['user_id'])) {
         throw new Exception("Требуется авторизация", 401);
     }
 
-    // 4. Проверка файла
+    // Проверка файла
     if (empty($_FILES['avatar'])) {
         throw new Exception("Файл не был загружен", 400);
     }
 
     $file = $_FILES['avatar'];
 
-    // 5. Проверка ошибок загрузки
+    // Проверка ошибок загрузки
     if ($file['error'] !== UPLOAD_ERR_OK) {
         $errors = [
             0 => "Нет ошибок",
@@ -51,12 +51,12 @@ try {
         throw new Exception($errors[$file['error']] ?? "Неизвестная ошибка загрузки", 400);
     }
 
-    // 6. Проверка размера (макс. 5MB)
+    // Проверка размера (макс. 5MB)
     if ($file['size'] > 5 * 1024 * 1024) {
         throw new Exception("Файл слишком большой (максимум 5MB)", 400);
     }
 
-    // 7. Проверка типа файла (без fileinfo)
+    // gроверка типа файла (без fileinfo)
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
@@ -64,7 +64,7 @@ try {
         throw new Exception("Допустимы только JPG, PNG или GIF", 400);
     }
 
-    // 8. Загрузка на ImgBB
+    // Загрузка на ImgBB
     $apiKey = "055b6e9b580db13c7fb69190d564c67e";
     $imageContent = file_get_contents($file['tmp_name']);
     $base64Image = base64_encode($imageContent);
@@ -90,7 +90,7 @@ try {
         throw new Exception("ImgBB вернул ошибку: " . ($result['error']['message'] ?? 'Неизвестная ошибка'), 500);
     }
 
-    // 9. Сохранение в БД
+    // Сохранение в БД
     $stmt = $db_connect->prepare("
         INSERT INTO personal_about (user_id, image) 
         VALUES (?, ?)

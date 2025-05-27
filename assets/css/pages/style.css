@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #F6AB0C;
+    --primary-hover: #e09b0b;
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+    --error-hover: #d32f2f;
+    --info-color: #2196F3;
+    --info-hover: #0b7dda;
+    --text-color: #333;
+    --light-gray: #f0f0f0;
+    --border-color: #ddd;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
