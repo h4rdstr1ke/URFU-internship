@@ -1,0 +1,10 @@
+.intro__conclusion {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.intro__conclusion p {
+    position: relative;
+    width: 450px;
+    text-align: center;
+}

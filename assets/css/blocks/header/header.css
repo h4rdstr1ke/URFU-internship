@@ -1,0 +1,7 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2.5%;
+    margin-right: 5%;
+    margin-top: 2.5%;
+}

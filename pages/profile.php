@@ -10,7 +10,7 @@ require_once __DIR__ . '/../includes/db_connect.php';
 
 // Проверка авторизации пользователя
 if (empty($_SESSION['authenticated'])) {
-    header('Location: /login.php');
+    header('Location: ../pages/reg_auth.php');
     exit();
 }
 

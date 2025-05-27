@@ -1,0 +1,30 @@
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/header-func.css);
+@import url(../blocks/header/header__personal_account.css);
+@import url(../blocks/index/lead/lead.css);
+@import url(../blocks/index/lead/lead__img.css);
+@import url(../blocks/index/intro/intro.css);
+@import url(../blocks/index/intro/intro-card.css);
+@import url(../blocks/index/intro/intro-card_right.css);
+@import url(../blocks/index/intro/intro-card_center.css);
+@import url(../blocks/index/intro/intro__conclusion.css);
+@import url(../blocks/index/intro/intro__conclusion-image.css);
+@import url(../blocks/index/intro/intro__conclusion-contain.css);
+@import url(../blocks/index/registration/registration.css);
+@import url(../blocks/index/registration/registration-button.css);
+@import url(../blocks/index/registration/registration__rocket-image.css);
+@import url(../blocks/index/registration/registration_contain.css);
+@import url(../blocks/index/karnegi/karnegi.css);
+@import url(../blocks/index/karnegi/karnegi__rectangle.css);
+@import url(../blocks/index/karnegi/karnegi-text.css);
+@import url(../blocks/index/footer/footer.css);
+@import url(../blocks/index/footer/footer-contacts.css);
+@import url(../blocks/index/footer/footer-contacts__card.css);
+@import url(../blocks/index/footer/footer-contacts__block.css);
+@import url(../fonts/index-fonts.css);
+@import url(../blocks/animation/animation.css);
+
+/*{
+    border: solid 1px black; //Для разметки
+   }*/
+   
