@@ -96,13 +96,14 @@ $full_name = trim(($account_data['surname'] ?? '') . ' ' .
 
 <body>
     <header class="header">
-        <img src="../assets/images/Logo.svg" />
+        <img class="header__logo" src="../assets/images/Logo.svg" alt="URFUintership Logo">
         <nav class="header-func">
-            <a href="../index.html">Главная</a>
-            <a href="../pages/cataloge.php">Каталог</a>
-            <a href="#">О нас</a>
-            <a href='../pages/profile.php'><img class="header__personal_account"
-                    src="../assets/images/Personal_Account.svg" height="60px" width="60px" alt="personal_account" /></a>
+            <a href="../index.html" class="header__link">Главная</a>
+            <a href="cataloge.php" class="header__link">Каталог</a>
+            <a href="#" class="header__link">О нас</a>
+            <a href='#' class="header__account-link">
+                <img class="header__personal_account" src="../assets/images/Personal_Account.svg" alt="Личный кабинет">
+            </a>
         </nav>
     </header>
 
@@ -112,7 +113,7 @@ $full_name = trim(($account_data['surname'] ?? '') . ' ' .
             <a href="admin_profile.php">Вернуться в админ-панель</a>
         <?php } ?>
         <!-- Выпадающее меню заявок -->
-        <?php if (!empty($applications)): ?>
+        <?php if (!empty($applications) && empty($_SESSION['is_admin'])): ?>
             <div class="applications-dropdown">
                 <button class="dropdown-toggle" onclick="toggleDropdown(this)">
                     Мои уведомления <span class="badge">кол-во: <?= count($applications) ?></span>

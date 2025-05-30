@@ -12,6 +12,6 @@ $db_connect = new mysqli($servername, $username, $password, $dbname, $port);
 if ($db_connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 } else {
-    echo "Успешное подключение к базе данных!";
+
 }
 ?>

@@ -12,54 +12,22 @@ $result = $db_connect->query("SELECT * FROM cataloge");
 <head>
     <meta charset="UTF-8">
     <title>Каталог</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css" />
+    <link rel="stylesheet" href="../assets/css/pages/cataloge.css" />
     <style>
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
 
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            position: relative;
-        }
-
-        .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff4444;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .respond-btn {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <img src="../assets/images/Logo.svg" alt="Логотип">
-        <nav>
-            <a href="../index.html">Главная</a>
-            <a href="#">Каталог</a>
-            <a href="#">О нас</a>
-            <a href='profile.php'>
-                <img src="../assets/images/Personal_Account.svg" alt="Личный кабинет">
+        <img class="header__logo" src="../assets/images/Logo.svg" alt="URFUintership Logo">
+        <nav class="header-func">
+            <a href="../index.html" class="header__link">Главная</a>
+            <a href="#" class="header__link">Каталог</a>
+            <a href="#" class="header__link">О нас</a>
+            <a href='profile.php' class="header__account-link">
+                <img class="header__personal_account" src="../assets/images/Personal_Account.svg" alt="Личный кабинет">
             </a>
         </nav>
     </header>

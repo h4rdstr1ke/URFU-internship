@@ -1,0 +1,123 @@
+/* header.css */
+:root {
+    --header-height: 150px;
+    --nav-item-font-size: 1.25rem;
+    --logo-size: 150px;
+    --account-icon-size: 70px;
+    --nav-gap: 3rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    height: var(--header-height);
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+}
+
+.header__logo {
+    height: var(--logo-size);
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-func {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+}
+
+.header__link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--nav-item-font-size);
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.header__account-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__personal_account {
+    width: var(--account-icon-size);
+    height: var(--account-icon-size);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Эффекты при наведении */
+.header__logo:hover {
+    transform: scale(1.05);
+}
+
+.header__link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.header__link:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.header__link:hover::after {
+    width: 100%;
+}
+
+.header__personal_account:hover {
+    transform: scale(1.1);
+    background: rgba(246, 171, 12, 0.1);
+    box-shadow: 0 0 0 3px rgba(246, 171, 12, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    :root {
+        --nav-item-font-size: 1.1rem;
+        --nav-gap: 2rem;
+        --logo-size: 70px;
+        --account-icon-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 80px;
+        --nav-item-font-size: 1rem;
+        --nav-gap: 1.5rem;
+        --logo-size: 60px;
+        --account-icon-size: 50px;
+    }
+
+    .header {
+        padding: 0.5rem 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --nav-item-font-size: 0.9rem;
+        --nav-gap: 1rem;
+    }
+
+    .header-func {
+        gap: 0.8rem;
+    }
+}

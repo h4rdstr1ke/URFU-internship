@@ -1,30 +1,333 @@
-@import url(../blocks/header/header.css);
-@import url(../blocks/header/header-func.css);
-@import url(../blocks/header/header__personal_account.css);
-@import url(../blocks/index/lead/lead.css);
-@import url(../blocks/index/lead/lead__img.css);
-@import url(../blocks/index/intro/intro.css);
-@import url(../blocks/index/intro/intro-card.css);
-@import url(../blocks/index/intro/intro-card_right.css);
-@import url(../blocks/index/intro/intro-card_center.css);
-@import url(../blocks/index/intro/intro__conclusion.css);
-@import url(../blocks/index/intro/intro__conclusion-image.css);
-@import url(../blocks/index/intro/intro__conclusion-contain.css);
-@import url(../blocks/index/registration/registration.css);
-@import url(../blocks/index/registration/registration-button.css);
-@import url(../blocks/index/registration/registration__rocket-image.css);
-@import url(../blocks/index/registration/registration_contain.css);
-@import url(../blocks/index/karnegi/karnegi.css);
-@import url(../blocks/index/karnegi/karnegi__rectangle.css);
-@import url(../blocks/index/karnegi/karnegi-text.css);
-@import url(../blocks/index/footer/footer.css);
-@import url(../blocks/index/footer/footer-contacts.css);
-@import url(../blocks/index/footer/footer-contacts__card.css);
-@import url(../blocks/index/footer/footer-contacts__block.css);
-@import url(../fonts/index-fonts.css);
-@import url(../blocks/animation/animation.css);
+@import url(header.css);
+
+/* ========== BASE STYLES ========== */
+:root {
+    --primary-color: #F6AB0C;
+    --primary-hover: #e09b0b;
+    --dark-bg: #232323;
+    --text-color: #333;
+    --light-text: #fff;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 
+/* ========== MAIN CONTENT ========== */
+.main {
+    flex: 1;
+    padding: 0 5%;
+}
+
+.lead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem 0;
+}
+
+.lead h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 600px;
+}
+
+.lead h1 span {
+    color: var(--primary-color);
+}
+
+.lead__img {
+    width: 50%;
+    max-width: 600px;
+    height: auto;
+}
+
+/* ========== INTRO STEPS ========== */
+.intro {
+    margin: 5rem 0;
+    position: relative;
+}
+
+.intro h2 {
+    text-align: right;
+    margin-right: 10%;
+    font-size: 2rem;
+}
+
+.intro-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.intro-card {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    width: 280px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.intro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.intro-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-card p {
+    flex-grow: 1;
+}
+
+.intro__conclusion {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 600px;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.intro__conclusion-image {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ========== REGISTRATION ========== */
+.registration {
+    text-align: center;
+    margin: 5rem 0;
+    position: relative;
+}
+
+.registration h3 {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: rgba(246, 171, 12, 0.6);
+    border-radius: var(--border-radius);
+}
+
+.registration-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.registration-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.registration__rocket-image {
+    margin-left: 1rem;
+    transition: var(--transition);
+}
+
+.registration-button:hover .registration__rocket-image {
+    transform: translateX(5px);
+}
+
+/* ========== KARNEGI SECTION ========== */
+.karnegi {
+    display: flex;
+    align-items: center;
+    margin: 5rem 0;
+    position: relative;
+}
+
+.karnegi img {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+}
+
+.karnegi-text {
+    margin-left: 3rem;
+    max-width: 400px;
+}
+
+.karnegi-text p {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.karnegi-text span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.karnegi__rectangle {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: var(--primary-color);
+    left: 175px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 3rem 5%;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-contacts__block {
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-contacts__card {
+    min-width: 200px;
+}
+
+.footer-contacts__card p:first-child {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .lead {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .lead h1 {
+        margin-bottom: 2rem;
+    }
+
+    .karnegi {
+        flex-direction: column;
+    }
+
+    .karnegi-text {
+        margin-left: 0;
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-func {
+        gap: 1rem;
+    }
+
+    .intro-cards {
+        justify-content: center;
+    }
+
+    .footer-contacts__block {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Анимация фона Karnegi */
+.karnegi__rectangle {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: var(--primary-color);
+    left: 175px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    animation: rotate 15s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* Карточки лесенкой */
+.intro-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+    perspective: 1000px;
+}
+
+.intro-card {
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.intro-card:nth-child(1) {
+    transform: translateY(0) rotateZ(-5deg);
+}
+
+.intro-card:nth-child(2) {
+    transform: translateY(30px) rotateZ(2deg);
+}
+
+.intro-card:nth-child(3) {
+    transform: translateY(60px) rotateZ(5deg);
+}
+
+.intro-card:hover {
+    transform: translateY(-10px) rotateZ(0deg) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
 
 /*{
     border: solid 1px black; //Для разметки

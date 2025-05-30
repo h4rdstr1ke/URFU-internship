@@ -1,5 +1,397 @@
 /* ========== BASE STYLES ========== */
-@import url(../blocks/header/header.css);
-@import url(../blocks/header/header-func.css);
-@import url(../blocks/header/header__personal_account.css);
+@import url(header.css);
 @import url(style.css);
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2,
+h3,
+h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* == LAYOUT ========== */
+.page {
+    padding-top: 100px;
+    position: relative;
+    min-height: calc(100vh - 120px);
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-about {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+}
+
+.avatar-achievement {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 1rem;
+}
+
+/* ========== FORM STYLES ========== */
+.form-section {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.form-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.achievement {
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.about {
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    flex-grow: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(246, 171, 12, 0.2);
+}
+
+input:disabled,
+textarea:disabled {
+    background-color: var(--light-gray);
+    border-color: var(--border-color);
+    color: #555;
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+/* ========== BUTTON STYLES ========== */
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.edit-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.logout-btn {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: var(--error-hover);
+}
+
+.dropdown-toggle {
+    background: var(--info-color);
+    color: white;
+}
+
+.dropdown-toggle:hover {
+    background: var(--info-hover);
+}
+
+/* ========== AVATAR STYLES ========== */
+#avatar-preview {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+/* ========== NOTIFICATION STYLES ========== */
+.notification {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: var(--border-radius);
+}
+
+.test {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    max-width: 300px;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid var(--success-color);
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid var(--error-color);
+}
+
+/* ========== DROPDOWN STYLES ========== */
+.applications-dropdown {
+    width: 400px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 10;
+}
+
+.dropdown-toggle {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    content: "▼";
+    font-size: 0.8em;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.dropdown-toggle.open::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    box-shadow: var(--box-shadow);
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.application-item {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-left: 4px solid;
+    border-radius: var(--border-radius);
+    background: white;
+    transition: var(--transition);
+}
+
+.application-item:hover {
+    transform: translateX(5px);
+}
+
+.status-accepted {
+    border-color: var(--success-color);
+    background: #e8f5e9;
+}
+
+.status-rejected {
+    border-color: var(--error-color);
+    background: #ffebee;
+}
+
+.status-pending {
+    border-color: #FFC107;
+    background: #fff8e1;
+}
+
+.application-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.application-title {
+    font-weight: bold;
+}
+
+.application-status {
+    font-size: 0.9em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    background: #eee;
+}
+
+.application-date {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.badge {
+    background: white;
+    color: var(--info-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-1 {
+    gap: 0.5rem;
+}
+
+.gap-2 {
+    gap: 1rem;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+/* ========== EDIT PROFILE SECTION ========== */
+.edit-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.edit-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.logout-form {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 1024px) {
+    .avatar-achievement {
+        width: 100%;
+    }
+
+    .applications-dropdown {
+        position: static;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .logout-form {
+        position: static;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #avatar-preview {
+        width: 200px;
+        height: 200px;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+}

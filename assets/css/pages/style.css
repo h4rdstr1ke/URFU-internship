@@ -1,15 +1,20 @@
+/* ========== ROOT VARIABLES ========== */
 :root {
+    /* Цвета */
     --primary-color: #F6AB0C;
     --primary-hover: #e09b0b;
     --success-color: #4CAF50;
+    --success-hover: #3e8e41;
     --error-color: #f44336;
     --error-hover: #d32f2f;
-    --info-color: #2196F3;
-    --info-hover: #0b7dda;
     --text-color: #333;
-    --light-gray: #f0f0f0;
+    --light-gray: #f5f5f5;
     --border-color: #ddd;
-    --border-radius: 4px;
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --info-color: #E5097F;
+    --info-hover: #da0b46;
+
+    /* Размеры */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }

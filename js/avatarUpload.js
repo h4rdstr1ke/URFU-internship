@@ -46,6 +46,11 @@ async function handleAvatarUpload(e) {
                 newPreview.alt = 'Мой аватар';
                 e.target.insertAdjacentElement('afterend', newPreview);
             }
+
+            // Перезагрузка страницы через 1.5 секунды
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
         } else {
             throw new Error(data.error || "Неизвестная ошибка");
         }

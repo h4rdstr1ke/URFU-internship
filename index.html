@@ -1,116 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URFUintership</title>
-    <link rel="stylesheet" href="assets/css/normalize.css" />
-    <link rel="stylesheet" href="assets/css/pages/index.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/pages/index.css">
+</head>
+<body>
     <div class="page">
-      <header class="header">
-        <img src="assets/images/Logo.svg" />
-        <nav class="header-func">
-          <a href="#">Главная</a>
-          <a href="pages/cataloge.php">Каталог</a>
-          <a href="#">О нас</a>
-          <a href='pages/profile.php'
-            ><img
-              class="header__personal_account"
-              src="assets/images/Personal_Account.svg"
-              height="60px"
-              width="60px"
-              alt="personal_account"
-          /></a>
-        </nav>
-      </header>
-      <main class="main">
-        <div class="lead">
-          <h1>
-            <span>Урфу internship</span>
-            это сервис<br />
-            для поиска стажировок и<br />
-            временной работы в кампусе.
-          </h1>
-          <img class="lead__img" src="assets/images/lead.svg" />
-        </div>
-        <div class="intro">
-          <h2>Как это работает?</h2>
-          <div class="intro-card">
-            <h3>step one</h3>
-            <p>Зарегистрируйтесь на платформе</p>
-          </div>
-          <div class="intro-card intro-card_right">
-            <h3>step two</h3>
-            <p>Заполните информацию о себе, в вашем личном кабинете</p>
-          </div>
-          <div class="intro-card intro-card_center">
-            <h3>step three</h3>
-            <p>Нажимайте на поиск и выбирайте интересующую вас вакансию</p>
-          </div>
-          <div class="intro__conclusion">
-            <p>
-              Ожидайте, когда на вашу заявку откликнуться
-              <img
-                class="intro__conclusion-image"
-                src="assets/images/intro__smile.svg"
-                width="120px"
-                alt="intro__smile"
-              />
-            </p>
-          </div>
-        </div>
-        <div class="registration">
-          <div class="registration_contain">
-            <h3>Приступим?</h3>
-          </div>
-          <button
-            class="registration-button"
-            onclick="window.location.href='pages/reg_auth.php';"
-          >
-            Зарегистрироваться
-            <img
-              class="registration__rocket-image"
-              src="assets/images/rocket.svg"
-              alt="rocket"
-            />
-          </button>
-        </div>
-        <div class="karnegi">
-          <img src="assets/images/karnegi.svg" alt="karnegi" width="460px" />
-          <div class="karnegi-text">
-            <p>
-              Будьте заняты.Это самое дешевое лекарство на земле - и одно из
-              самых эффективных.
-            </p>
-            <span
-              >Дейл<br />
-              Карнеги</span
-            >
-          </div>
-          <img
-            class="karnegi__rectangle karnegi-rotation"
-            src="assets/images/karnegi__rectangle.svg"
-          />
-        </div>
-      </main>
-      <footer class="footer">
-        <h3>О нас</h3>
-        <div class="footer-contacts">
-          <p>Контакты для обратной связи</p>
-          <div class="footer-contacts__block">
-            <div class="footer-contacts__card">
-              <p>Поддержка</p>
-              <p>vlad04344@gmail.com</p>
+        <header class="header">
+    <img class="header__logo" src="assets/images/Logo.svg" alt="URFUintership Logo">
+    <nav class="header-func">
+        <a href="#" class="header__link">Главная</a>
+        <a href="pages/cataloge.php" class="header__link">Каталог</a>
+        <a href="#" class="header__link">О нас</a>
+        <a href='pages/profile.php' class="header__account-link">
+            <img class="header__personal_account" 
+                 src="assets/images/Personal_Account.svg" 
+                 alt="Личный кабинет">
+        </a>
+    </nav>
+</header>
+
+        <main class="main">
+            <section class="lead">
+                <div>
+                    <h1>
+                        <span>Урфу internship</span><br>
+                        это сервис для поиска стажировок<br>
+                        и временной работы в кампусе
+                    </h1>
+                </div>
+                <img class="lead__img" src="assets/images/lead.svg" alt="Студенты">
+            </section>
+
+            <section class="intro">
+                <h2>Как это работает?</h2>
+                <div class="intro-cards">
+                    <article class="intro-card">
+                        <h3>Шаг 1</h3>
+                        <p>Зарегистрируйтесь на платформе</p>
+                    </article>
+                    <article class="intro-card">
+                        <h3>Шаг 2</h3>
+                        <p>Заполните информацию о себе в личном кабинете</p>
+                    </article>
+                    <article class="intro-card">
+                        <h3>Шаг 3</h3>
+                        <p>Найдите и выберите интересующую вас вакансию</p>
+                    </article>
+                </div>
+                <div class="intro__conclusion">
+                    <p>
+                        Ожидайте ответа на вашу заявку
+                        <img class="intro__conclusion-image" 
+                             src="assets/images/intro__smile.svg" 
+                             alt="Улыбка">
+                    </p>
+                </div>
+            </section>
+
+            <section class="registration">
+                <div class="registration_contain">
+                    <h3>Приступим?</h3>
+                </div>
+                <button class="registration-button" onclick="window.location.href='pages/reg_auth.php'">
+                    Зарегистрироваться
+                    <img class="registration__rocket-image" 
+                         src="assets/images/rocket.svg" 
+                         alt="Ракета">
+                </button>
+            </section>
+
+            <section class="karnegi">
+                <img src="assets/images/karnegi.svg" alt="Дейл Карнеги">
+                <div class="karnegi-text">
+                    <p>
+                        Будьте заняты. Это самое дешевое лекарство на земле - 
+                        и одно из самых эффективных.
+                    </p>
+                    <span>Дейл Карнеги</span>
+                </div>
+                <div class="karnegi__rectangle"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <h3>О нас</h3>
+            <div class="footer-contacts">
+                <p>Контакты для обратной связи</p>
+                <div class="footer-contacts__block">
+                    <div class="footer-contacts__card">
+                        <p>Поддержка</p>
+                        <p>vlad04344@gmail.com</p>
+                    </div>
+                    <div class="footer-contacts__card">
+                        <p>Пожелания</p>
+                        <p>vlad04344@gmail.com</p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-contacts__card">
-              <p>Пожелания</p>
-              <p>vlad04344@gmail.com</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+        </footer>
     </div>
-  </body>
+     
+</body>
 </html>

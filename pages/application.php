@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_id'])) {
 
 $card_id = (int) ($_GET['card_id'] ?? 0);
 
-// Проверка существования карточки и получение admin_id
-$stmt = $db_connect->prepare("SELECT card_id, admin_id FROM cataloge WHERE card_id = ?");
+// Изменено: добавлен столбец fullDesc в запрос
+$stmt = $db_connect->prepare("SELECT card_id, admin_id, fullDesc FROM cataloge WHERE card_id = ?");
 $stmt->bind_param("i", $card_id);
 $stmt->execute();
 $card = $stmt->get_result()->fetch_assoc();
@@ -21,19 +21,17 @@ if (!$card) {
     die("Карточка не найдена");
 }
 
-// Проверка существующей заявки
+// Остальной код без изменений
 $stmt = $db_connect->prepare("SELECT application_id FROM application WHERE card_id = ? AND user_id = ? AND accept IS NOT FALSE");
 $stmt->bind_param("ii", $card_id, $_SESSION['user_id']);
 $stmt->execute();
 $existing_application = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
-// Если заявка уже существует и не была отклонена (accept !== FALSE)
 if ($existing_application) {
     die("Вы уже подавали заявку на эту карточку");
 }
 
-// Обработка отправки формы
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = trim($_POST['description']);
 
@@ -59,39 +57,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Подача заявки</title>
-    <style>
-        .application-container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 150px;
-            margin: 10px 0;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/normalize.css" />
+    <link rel="stylesheet" href="../assets/css/pages/application.css" />
 </head>
 
 <body>
-    <header>
-
-    </header>
-
     <div class="application-container">
         <?php if (isset($success)): ?>
-            <h2>Заявка отправлена</h2>
-            <p>Ваша заявка успешно отправлена администратору.</p>
-            <a href="cataloge.php">Вернуться в каталог</a>
+            <div class="success-message">
+                <h2>Заявка отправлена</h2>
+                <p>Ваша заявка успешно отправлена администратору.</p>
+            </div>
+            <a href="catalоge.php" class="button-link">Вернуться в каталог</a>
         <?php else: ?>
             <h2>Подача заявки</h2>
 
+            <!-- Добавленный блок с полным описанием -->
+            <div class="full-description">
+                <h3>Полное описание:</h3>
+                <p><?= nl2br(htmlspecialchars($card['fullDesc'])) ?></p>
+            </div>
+
             <?php if (isset($error)): ?>
-                <div style="color: red;"><?= $error ?></div>
+                <div class="error-message"><?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
 
             <form method="POST">
@@ -100,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <textarea name="description" id="description" required></textarea>
                 </div>
                 <button type="submit">Отправить заявку</button>
-                <a href="cataloge.php">Отмена</a>
+                <a href="catalоge.php">Отмена</a>
             </form>
         <?php endif; ?>
     </div>
