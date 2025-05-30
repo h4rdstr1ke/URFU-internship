@@ -17,8 +17,7 @@ package-lock.json
 yarn.lock
 
 # === Базы данных ===
-# Исключаем SQL-дампы, но можно разрешить schema.sql
-/database/*.sql
+#/database/*.sql
 !/database/schema.sql  # разрешаем только этот файл
 
 # === Системные файлы ===
